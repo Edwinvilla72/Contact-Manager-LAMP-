@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/Signup Modal</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/spinner.css" />    
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <!-- Login Modal -->
+      <div id="SigninModal" class="modal-dialog position-absolute" style="width: 450px">
+        <div class="modal-content p-3">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold text-primary" id="exampleModalLabel">
+              Login
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="SigninModalLogin" class="form-label"
+                  >Login or Email Address</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="SigninModalLogin"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="SigninModalPassword" class="form-label"
+                  >Password</label
+                >
+                <div class="position-relative">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="SigninModalPassword"
+                  />
+                  <i
+                    class="password-eye fa fa-eye-slash position-absolute top-50 end-0 translate-middle-y pe-2"
+                    data-target="SigninModalPassword"
+                  ></i>
+                </div>
+              </div>
+              <div
+                id="SigninModalError"
+                hidden
+                class="alert alert-danger m-0 mt-3"
+                role="alert"
+              ></div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-100 p-2 mt-3">
+                  <div class="d-flex flex-row gap-1 justify-content-center">
+                    <div class="me-1 d-none justify-content-center align-items-center" id="signinModalSpinner">
+                        <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width='20px' height='20px'><path fill="white" d="M16 8a7.92 7.92 0 0 0-2.431-5.568A7.78 7.78 0 0 0 5.057.896c-.923.405-1.758.992-2.449 1.712S1.371 4.182 1.011 5.105a7.53 7.53 0 0 0 .115 5.742c.392.892.961 1.7 1.658 2.368S4.307 14.41 5.2 14.758a7.3 7.3 0 0 0 2.799.493a7.16 7.16 0 0 0 6.526-4.547a7 7 0 0 0 .415-1.622l.059.002a1 1 0 0 0 .996-1.083h.004zm-1.589 2.655c-.367.831-.898 1.584-1.55 2.206s-1.422 1.112-2.254 1.434a6.8 6.8 0 0 1-2.608.454a6.68 6.68 0 0 1-4.685-2.065a6.6 6.6 0 0 1-1.38-2.173a6.5 6.5 0 0 1 .116-4.976c.342-.77.836-1.468 1.441-2.044s1.321-1.029 2.092-1.326a6.27 6.27 0 0 1 4.784.116c.74.329 1.41.805 1.963 1.387s.988 1.27 1.272 2.011a6 6 0 0 1 .397 2.32h.004a1 1 0 0 0 .888 1.077a7 7 0 0 1-.481 1.578z"/></svg>
+                    </div>
+                    <span id="signinModalButtonText">
+                       Login
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <div class="m-0 d-flex align-items-center justify-content-center gap-1">
+              Don't have an account?
+              <button
+                type="button"
+                class="btn btn-link text-primary p-0"
+                id="BtnSignup"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register modal -->
+      <div hidden id="SignupModal" class="modal-dialog position-absolute" style="width: 450px;">
+        <div class="modal-content p-3">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold text-primary" id="SignupModalLabel">
+              Sign Up
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="SignupModalLogin" class="form-label"
+                  >Login or Email Address</label
+                >
+                <input type="text" class="form-control" id="SignupModalLogin" />
+              </div>
+              <div class="mb-3">
+                <label for="SignupModalPassword" class="form-label"
+                  >Password</label
+                >
+                <div class="position-relative">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="SignupModalPassword"
+                  />
+                  <i
+                    class="password-eye fa fa-eye-slash position-absolute top-50 end-0 translate-middle-y pe-2"
+                    data-target="SignupModalPassword"
+                  ></i>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="SignupModalPasswordConfirm" class="form-label"
+                  >Confirm Password</label
+                >
+                <div class="position-relative">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="SignupModalPasswordConfirm"
+                  />
+                  <i
+                    class="password-eye fa fa-eye-slash position-absolute top-50 end-0 translate-middle-y pe-2"
+                    data-target="SignupModalPasswordConfirm"
+                  ></i>
+                </div>
+              </div>
+              <div
+                id="SignupModalError"
+                hidden
+                class="alert alert-danger m-0 mt-3"
+                role="alert"
+              ></div>
+              <button type="submit" class="btn btn-primary w-100 p-2 mt-3">
+                <div class="d-flex flex-row gap-1 justify-content-center">
+                  <div class="me-1 d-none justify-content-center align-items-center" id="signupModalSpinner">
+                      <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width='20px' height='20px'><path fill="white" d="M16 8a7.92 7.92 0 0 0-2.431-5.568A7.78 7.78 0 0 0 5.057.896c-.923.405-1.758.992-2.449 1.712S1.371 4.182 1.011 5.105a7.53 7.53 0 0 0 .115 5.742c.392.892.961 1.7 1.658 2.368S4.307 14.41 5.2 14.758a7.3 7.3 0 0 0 2.799.493a7.16 7.16 0 0 0 6.526-4.547a7 7 0 0 0 .415-1.622l.059.002a1 1 0 0 0 .996-1.083h.004zm-1.589 2.655c-.367.831-.898 1.584-1.55 2.206s-1.422 1.112-2.254 1.434a6.8 6.8 0 0 1-2.608.454a6.68 6.68 0 0 1-4.685-2.065a6.6 6.6 0 0 1-1.38-2.173a6.5 6.5 0 0 1 .116-4.976c.342-.77.836-1.468 1.441-2.044s1.321-1.029 2.092-1.326a6.27 6.27 0 0 1 4.784.116c.74.329 1.41.805 1.963 1.387s.988 1.27 1.272 2.011a6 6 0 0 1 .397 2.32h.004a1 1 0 0 0 .888 1.077a7 7 0 0 1-.481 1.578z"/></svg>
+                  </div>
+                  <span id="signupModalButtonText">
+                     Create Account
+                  </span>
+                </div>
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <div class="m-0 d-flex align-items-center justify-content-center gap-1">
+              Already have an account?
+              <button
+                type="button"
+                class="btn btn-link text-primary p-0"
+                id="BtnSignin"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/session.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/home.js"></script>
+
+    <script>
+      document.querySelectorAll(".password-eye").forEach((icon) => {
+        icon.addEventListener("click", function () {
+          const targetInput = document.getElementById(this.dataset.target);
+          if (targetInput) {
+            // Toggle password visibility
+            const type = targetInput.type === "password" ? "text" : "password";
+            targetInput.type = type;
+
+            // Toggle the eye icon
+            this.classList.toggle("fa-eye");
+            this.classList.toggle("fa-eye-slash");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
